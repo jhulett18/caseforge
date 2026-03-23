@@ -10,6 +10,7 @@
   "dependencies": {
     "@supabase/ssr": "^0.9.0",
     "@supabase/supabase-js": "^2.99.3",
+    "agentation": "^2.3.3",
     "crypto-js": "^4.2.0",
     "driver.js": "^1.4.0",
     "next": "16.2.1",

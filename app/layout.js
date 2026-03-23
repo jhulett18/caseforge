@@ -1,4 +1,5 @@
 import { Sora, JetBrains_Mono } from "next/font/google";
+import AgentationWrapper from "./components/AgentationWrapper";
 import "./globals.css";
 
 const sora = Sora({
@@ -22,7 +23,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${sora.variable} ${jetbrainsMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <AgentationWrapper />
+      </body>
     </html>
   );
 }
