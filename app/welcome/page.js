@@ -58,7 +58,7 @@ export default function WelcomePage() {
         </Link>
 
         <div style={{ marginTop: 48, fontSize: 12, color: "var(--muted)" }}>
-          Questions? jonathan@caseforge.com
+          Questions? jonathan_hulett@ymail.com
         </div>
       </div>
     </div>
