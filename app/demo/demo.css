@@ -1,22 +1,18 @@
-/* ─── CASEFORGE DASHBOARD THEME ─────────────────────────────────────────── */
+/* ─── CASEFORGE DASHBOARD — LIGHT THEME ─────────────────────────────────── */
 .cf-dash {
-  font-family: var(--font-dm-mono), 'Courier New', monospace;
-  background: #0c0c0e;
+  font-family: var(--sans);
+  background: #fff;
   min-height: 100vh;
-  color: #e8e8e0;
+  color: var(--text);
 }
 
 .cf-dash * { box-sizing: border-box; }
 
-.cf-dash ::-webkit-scrollbar { width: 4px; }
-.cf-dash ::-webkit-scrollbar-track { background: #111; }
-.cf-dash ::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
-
 .cf-dash textarea { resize: vertical; }
 
-.cf-dash .tab-active { border-bottom: 2px solid #B8860B; color: #B8860B; }
-.cf-dash .tab-inactive { border-bottom: 2px solid transparent; color: #666; }
-.cf-dash .tab-inactive:hover { color: #aaa; }
+.cf-dash .tab-active { border-bottom: 2px solid var(--green); color: var(--green-d); }
+.cf-dash .tab-inactive { border-bottom: 2px solid transparent; color: var(--muted); }
+.cf-dash .tab-inactive:hover { color: var(--text); }
 
 .cf-dash .pulse-dot { animation: cf-pulse 2s infinite; }
 @keyframes cf-pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
@@ -28,62 +24,106 @@
 @keyframes cf-fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
 
 .cf-dash .card {
-  background: #141416;
-  border: 1px solid #222;
-  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
 }
 
 .cf-dash .gold { color: #B8860B; }
-.cf-dash .gold-border { border-color: #B8860B; }
 
 .cf-dash input[type=text],
 .cf-dash textarea,
 .cf-dash select {
-  background: #0c0c0e;
-  border: 1px solid #2a2a2a;
-  color: #e8e8e0;
-  border-radius: 6px;
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
   padding: 8px 12px;
   font-family: inherit;
-  font-size: 12px;
+  font-size: 13px;
   outline: none;
 }
 
 .cf-dash input[type=text]:focus,
 .cf-dash textarea:focus {
-  border-color: #B8860B44;
-  box-shadow: 0 0 0 2px #B8860B11;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(0,200,5,0.08);
 }
 
-.cf-dash .btn-gold {
-  background: #B8860B;
-  color: #000;
-  font-weight: 500;
+.cf-dash .btn-primary {
+  background: var(--ink);
+  color: #fff;
+  font-weight: 600;
   border: none;
-  border-radius: 6px;
+  border-radius: 100px;
   cursor: pointer;
   font-family: inherit;
-  letter-spacing: 0.5px;
-  transition: background 0.2s;
+  letter-spacing: -0.2px;
+  transition: all 0.15s;
 }
-.cf-dash .btn-gold:hover { background: #d4a017; }
-.cf-dash .btn-gold:disabled { background: #444; color: #888; cursor: not-allowed; }
+.cf-dash .btn-primary:hover { background: #222; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+.cf-dash .btn-primary:disabled { background: var(--border); color: var(--muted); cursor: not-allowed; transform: none; box-shadow: none; }
+.cf-dash .btn-primary.done { background: var(--green); }
 
 .cf-dash .btn-outline {
   background: transparent;
-  color: #B8860B;
-  border: 1px solid #B8860B44;
-  border-radius: 6px;
+  color: var(--green-d);
+  border: 1.5px solid var(--green-border);
+  border-radius: 100px;
   cursor: pointer;
   font-family: inherit;
-  letter-spacing: 0.5px;
-  transition: all 0.2s;
+  letter-spacing: -0.2px;
+  transition: all 0.15s;
 }
-.cf-dash .btn-outline:hover { border-color: #B8860B; background: #B8860B11; }
+.cf-dash .btn-outline:hover { border-color: var(--green); background: var(--green-bg); }
 .cf-dash .btn-outline:disabled { opacity: 0.4; cursor: not-allowed; }
 
 .cf-dash .ev-row {
-  border-bottom: 1px solid #1e1e1e;
+  border-bottom: 1px solid var(--border);
   transition: background 0.15s;
 }
-.cf-dash .ev-row:hover { background: #161618; }
+.cf-dash .ev-row:hover { background: rgba(0,0,0,0.015); }
+
+/* ─── DRIVER.JS THEME OVERRIDES ─────────────────────────────────────────── */
+.driver-popover {
+  font-family: var(--sans) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12) !important;
+  border: 1px solid var(--border) !important;
+}
+.driver-popover-title {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.3px !important;
+}
+.driver-popover-description {
+  font-size: 13px !important;
+  color: var(--muted) !important;
+  line-height: 1.7 !important;
+}
+.driver-popover-next-btn,
+.driver-popover-prev-btn,
+.driver-popover-close-btn {
+  border-radius: 100px !important;
+  font-family: var(--sans) !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+}
+.driver-popover-next-btn {
+  background: var(--green) !important;
+  color: #fff !important;
+  border: none !important;
+  text-shadow: none !important;
+}
+.driver-popover-next-btn:hover {
+  background: var(--green-d) !important;
+}
+.driver-popover-prev-btn {
+  background: transparent !important;
+  color: var(--muted) !important;
+  border: 1px solid var(--border) !important;
+}
+.driver-popover-progress-text {
+  font-size: 11px !important;
+  color: var(--muted) !important;
+}
