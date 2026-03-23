@@ -51,7 +51,7 @@ export default function Home() {
       <div className="hero">
         <div className="eyebrow">Built for private investigators</div>
         <h1>
-          Your reports.
+          Your team&apos;s reports.
           <br />
           <em>Court-proof.</em> In seconds.
         </h1>
@@ -60,6 +60,9 @@ export default function Home() {
           in courtrooms nationwide. CaseForge assembles your reports
           automatically &mdash; no AI writing, full chain of custody, ready
           before opposing counsel asks.
+        </p>
+        <p style={{ fontWeight: 700, marginTop: 0 }}>
+          Zero AI-generated content. Every word is your investigator&apos;s.
         </p>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
           <Link href="/demo" className="hero-btn" style={{ textDecoration: "none" }}>
@@ -120,7 +123,7 @@ export default function Home() {
         <div className="alert-row">
           <div className="alert-ico">⚖</div>
           <div>
-            <div className="alert-title">The legal landscape just changed</div>
+            <div className="alert-title">Your evidence can now be challenged &mdash; even when it&apos;s real</div>
             <div className="alert-body">
               Louisiana became the first state requiring investigators to{" "}
               <strong>
@@ -129,7 +132,8 @@ export default function Home() {
               Opposing counsel can now challenge your surveillance footage
               &mdash; even when it&apos;s completely real &mdash; and demand you
               prove it.{" "}
-              <strong>Most PIs have no way to do that today.</strong>
+              <strong>Most PIs have no way to do that today.</strong>{" "}
+              If one investigator on your team can&apos;t prove provenance, the entire case file is exposed.
             </div>
           </div>
         </div>
@@ -143,11 +147,10 @@ export default function Home() {
               CaseForge solves this &mdash; without touching Trackops
             </div>
             <div className="alert-body">
-              Runs on top of your existing tools. You write the observations.
-              The software fingerprints files, logs every action, pulls your
-              case data from Trackops automatically, and assembles the report
-              with a{" "}
-              <strong>signed no-AI certification document.</strong> Not AI
+              You write the observations. CaseForge fingerprints every file,
+              logs every action, pulls case data from Trackops, and assembles
+              the report with a{" "}
+              <strong>signed no-AI certification.</strong> Not AI
               writing reports &mdash; software assembling what you already have.
             </div>
           </div>
@@ -236,7 +239,7 @@ export default function Home() {
           <div className="step-head">
             <div className="step-dot">2</div>
             <div className="step-t">
-              You write what you saw. Software fills the rest.
+              Your investigators write what they saw. Software fills the rest.
             </div>
             <span className="step-tag tag-h">You write this</span>
           </div>
@@ -304,10 +307,10 @@ export default function Home() {
             <div className="step-inner">
               <div className="step-content">
                 <div className="step-desc">
-                  Hit generate. CaseForge assembles the full surveillance report
-                  PDF &mdash; plus a chain of custody document and a signed
-                  &ldquo;no AI content&rdquo; certification. Everything your
-                  attorney and client need, before they ask for it.
+                  Hit generate. CaseForge assembles three deliverables: the full
+                  surveillance report PDF, a chain of custody document with
+                  immutable hashes, and a signed no-AI certification. Send the
+                  package to your client in the same session.
                 </div>
                 <div className="report-box">
                   <div className="rbox-top">
@@ -372,6 +375,7 @@ export default function Home() {
         <p>
           Runs on top of Trackops. No migration, no new tools to learn. Just
           reports that are done before you close the laptop.
+          {" "}Your investigators keep working in Trackops. CaseForge runs underneath &mdash; standardizing every report your firm delivers.
         </p>
         <div className="cta-btns">
           <button
@@ -382,7 +386,7 @@ export default function Home() {
               )
             }
           >
-            Request a live walkthrough
+            Book a 15-minute walkthrough
           </button>
           <button
             className="btn-out"
@@ -398,7 +402,7 @@ export default function Home() {
         <div className="ft-brand">
           Case<span>Forge</span>
         </div>
-        <div className="ft-sub">Automations with JT · auto-jt.com</div>
+        <div className="ft-sub">Questions? jonathan@caseforge.com</div>
       </footer>
     </div>
   );
