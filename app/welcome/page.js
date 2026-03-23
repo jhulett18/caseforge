@@ -13,10 +13,10 @@ export default function WelcomePage() {
         </p>
 
         <div style={{ textAlign: "left", marginBottom: 40 }}>
-          <div style={{ fontSize: 12, fontWeight: 600, color: "var(--muted)", letterSpacing: "1px", marginBottom: 14 }}>WHAT YOU&apos;LL SEE IN THIS DEMO</div>
+          <div style={{ fontSize: 12, fontWeight: 600, color: "var(--muted)", letterSpacing: "1px", marginBottom: 14 }}>WHAT WE&apos;LL SIMULATE IN THIS DEMO</div>
           <ul style={{ fontSize: 14, color: "var(--text)", lineHeight: 2.2, paddingLeft: 20 }}>
             <li>Case data pulled automatically from Trackops</li>
-            <li>Evidence clips with SHA-256 fingerprints and metadata</li>
+            <li>Seeded evidence videos with SHA-256 fingerprints and metadata</li>
             <li>Investigator observation entry — human-authored only</li>
             <li>One-click PDF report with no-AI certification</li>
           </ul>
