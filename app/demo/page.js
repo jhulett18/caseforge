@@ -342,22 +342,22 @@ export default function DemoPage() {
             <div className="card" style={{ padding: 22 }}>
               <div style={{ fontSize: 10, color: "#B8860B", letterSpacing: "1.5px", fontWeight: 600, marginBottom: 14 }}>REPORT CHECKLIST</div>
               {[
-                ["Case data pulled from Trackops", pulled],
-                ["Subject profile populated", true],
-                ["Evidence clips logged", true],
-                [`Investigator observations entered (${Object.values(narratives).filter((v) => v?.trim()).length}/${MOCK_EVIDENCE.length})`, allNarrativesEntered],
-              ].map(([label, ok]) => (
+                ["Case data pulled from Trackops", pulled, true],
+                ["Subject profile populated", true, false],
+                ["Evidence clips logged", true, false],
+                [`Investigator observations entered (${Object.values(narratives).filter((v) => v?.trim()).length}/${MOCK_EVIDENCE.length})`, allNarrativesEntered, false],
+              ].map(([label, ok, required]) => (
                 <div key={label} style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10, fontSize: 13 }}>
                   <div style={{
                     width: 20, height: 20, borderRadius: "50%",
-                    background: ok ? "var(--green-bg)" : "var(--surface)",
-                    border: `1.5px solid ${ok ? "var(--green)" : "var(--border)"}`,
+                    background: ok ? "var(--green-bg)" : (required && !ok) ? "var(--red-bg)" : "var(--surface)",
+                    border: `1.5px solid ${ok ? "var(--green)" : (required && !ok) ? "var(--red)" : "var(--border)"}`,
                     display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: 10, color: ok ? "var(--green-d)" : "var(--muted)", flexShrink: 0,
+                    fontSize: 10, color: ok ? "var(--green-d)" : (required && !ok) ? "var(--red)" : "var(--muted)", flexShrink: 0,
                   }}>
-                    {ok ? "✓" : "·"}
+                    {ok ? "✓" : (required && !ok) ? "!" : "·"}
                   </div>
-                  <span style={{ color: ok ? "var(--text)" : "var(--muted)" }}>{label}</span>
+                  <span style={{ color: ok ? "var(--text)" : (required && !ok) ? "var(--red)" : "var(--muted)", fontWeight: (required && !ok) ? 600 : 400 }}>{label}</span>
                 </div>
               ))}
             </div>
@@ -384,7 +384,7 @@ export default function DemoPage() {
             <button
               className={`btn-primary${generated ? " done" : ""}`}
               onClick={handleGenerate}
-              disabled={generating || !allNarrativesEntered}
+              disabled={generating || !pulled}
               style={{ padding: "14px 28px", fontSize: 14, display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}
             >
               {generating ? (
@@ -396,9 +396,9 @@ export default function DemoPage() {
               )}
             </button>
 
-            {!allNarrativesEntered && (
-              <div style={{ fontSize: 12, color: "var(--muted)", textAlign: "center" }}>
-                ← Go to Evidence Log and enter observations for all {MOCK_EVIDENCE.length} clips first
+            {!pulled && (
+              <div style={{ fontSize: 12, color: "var(--red)", textAlign: "center", background: "var(--red-bg)", border: "1px solid var(--red-border)", borderRadius: 12, padding: "12px 16px", lineHeight: 1.7 }}>
+                <strong>Trackops sync required.</strong> Reports cannot be generated without verified case data. Pull from Trackops first to ensure all case details are accurate and auditable.
               </div>
             )}
 
