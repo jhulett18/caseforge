@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [openStep, setOpenStep] = useState(1);
@@ -60,29 +61,35 @@ export default function Home() {
           automatically &mdash; no AI writing, full chain of custody, ready
           before opposing counsel asks.
         </p>
-        <button
-          className="hero-btn"
-          onClick={() =>
-            howRef.current?.scrollIntoView({ behavior: "smooth" })
-          }
-        >
-          See how it works
-          <svg
-            className="arr"
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+          <Link href="/demo" className="hero-btn" style={{ textDecoration: "none" }}>
+            Try the live demo
+            <svg
+              className="arr"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <path
+                d="M3 8h10M9 4l4 4-4 4"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </Link>
+          <button
+            className="hero-btn"
+            style={{ background: "transparent", border: "1.5px solid #E5E5EA", color: "#1C1C1E" }}
+            onClick={() =>
+              howRef.current?.scrollIntoView({ behavior: "smooth" })
+            }
           >
-            <path
-              d="M3 8h10M9 4l4 4-4 4"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
+            See how it works
+          </button>
+        </div>
       </div>
 
       {/* STATS */}

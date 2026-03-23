@@ -1,0 +1,89 @@
+/* ─── CASEFORGE DASHBOARD THEME ─────────────────────────────────────────── */
+.cf-dash {
+  font-family: var(--font-dm-mono), 'Courier New', monospace;
+  background: #0c0c0e;
+  min-height: 100vh;
+  color: #e8e8e0;
+}
+
+.cf-dash * { box-sizing: border-box; }
+
+.cf-dash ::-webkit-scrollbar { width: 4px; }
+.cf-dash ::-webkit-scrollbar-track { background: #111; }
+.cf-dash ::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+.cf-dash textarea { resize: vertical; }
+
+.cf-dash .tab-active { border-bottom: 2px solid #B8860B; color: #B8860B; }
+.cf-dash .tab-inactive { border-bottom: 2px solid transparent; color: #666; }
+.cf-dash .tab-inactive:hover { color: #aaa; }
+
+.cf-dash .pulse-dot { animation: cf-pulse 2s infinite; }
+@keyframes cf-pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+
+.cf-dash .spin { animation: cf-spin 1s linear infinite; }
+@keyframes cf-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.cf-dash .fade-in { animation: cf-fadeIn 0.4s ease; }
+@keyframes cf-fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+
+.cf-dash .card {
+  background: #141416;
+  border: 1px solid #222;
+  border-radius: 8px;
+}
+
+.cf-dash .gold { color: #B8860B; }
+.cf-dash .gold-border { border-color: #B8860B; }
+
+.cf-dash input[type=text],
+.cf-dash textarea,
+.cf-dash select {
+  background: #0c0c0e;
+  border: 1px solid #2a2a2a;
+  color: #e8e8e0;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+}
+
+.cf-dash input[type=text]:focus,
+.cf-dash textarea:focus {
+  border-color: #B8860B44;
+  box-shadow: 0 0 0 2px #B8860B11;
+}
+
+.cf-dash .btn-gold {
+  background: #B8860B;
+  color: #000;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.5px;
+  transition: background 0.2s;
+}
+.cf-dash .btn-gold:hover { background: #d4a017; }
+.cf-dash .btn-gold:disabled { background: #444; color: #888; cursor: not-allowed; }
+
+.cf-dash .btn-outline {
+  background: transparent;
+  color: #B8860B;
+  border: 1px solid #B8860B44;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.5px;
+  transition: all 0.2s;
+}
+.cf-dash .btn-outline:hover { border-color: #B8860B; background: #B8860B11; }
+.cf-dash .btn-outline:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.cf-dash .ev-row {
+  border-bottom: 1px solid #1e1e1e;
+  transition: background 0.15s;
+}
+.cf-dash .ev-row:hover { background: #161618; }
