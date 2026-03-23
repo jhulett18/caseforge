@@ -35,6 +35,7 @@ function VerifiedBadge({ verified }) {
 
 export default function DemoPage() {
   const [activeTab, setActiveTab] = useState("case");
+  const [menuOpen, setMenuOpen] = useState(false);
   const [narratives, setNarratives] = useState({
     "EV-001": "Subject exited residence at 0714. Walked to vehicle unassisted, loaded 4 lumber boards (approx. 8ft) into truck bed without visible difficulty. Drove north on Oleander Ave.",
     "EV-002": "Subject arrived at Home Depot at 0941. Entered store unassisted, no visible limp or mobility aid. Purchased additional building materials. Carried two bags to vehicle.",
@@ -163,30 +164,49 @@ export default function DemoPage() {
   return (
     <div className="cf-dash">
       {/* Top Bar */}
-      <div style={{ borderBottom: "1px solid var(--border)", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 56 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <Link href="/welcome" style={{ textDecoration: "none", color: "var(--muted)", fontSize: 12, display: "flex", alignItems: "center", gap: 4 }}>
-            ← Back
+      <div className="cf-topbar">
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <Link href="/welcome" style={{ textDecoration: "none", color: "var(--muted)", fontSize: 12 }}>
+            ←
           </Link>
-          <span style={{ color: "var(--border)", fontSize: 18 }}>|</span>
           <div style={{ fontSize: 17, fontWeight: 700, letterSpacing: "-0.4px" }}>
             Case<span style={{ color: "var(--green)" }}>Forge</span>
           </div>
-          <span style={{ fontSize: 11, color: "var(--muted)" }}>PI Report Automation</span>
+          <span className="cf-hide-mobile" style={{ fontSize: 11, color: "var(--muted)" }}>PI Report Automation</span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <button
             onClick={startTour}
+            className="cf-hide-mobile"
             style={{ background: "none", border: "1px solid var(--border)", borderRadius: 20, padding: "4px 12px", fontSize: 11, color: "var(--muted)", cursor: "pointer", fontFamily: "inherit" }}
           >
             ? Tour
           </button>
           <div className="pulse-dot" style={{ width: 6, height: 6, borderRadius: "50%", background: pulled ? "var(--green)" : "var(--muted)" }} />
-          <span style={{ fontSize: 11, color: pulled ? "var(--green-d)" : "var(--muted)" }}>
+          <span className="cf-hide-mobile" style={{ fontSize: 11, color: pulled ? "var(--green-d)" : "var(--muted)" }}>
             {pulled ? "Trackops Connected" : "Awaiting Data Pull"}
           </span>
+          <button
+            className="cf-hamburger"
+            onClick={() => setMenuOpen(!menuOpen)}
+            style={{ background: "none", border: "none", fontSize: 20, cursor: "pointer", color: "var(--text)", padding: 4, lineHeight: 1 }}
+          >
+            {menuOpen ? "✕" : "☰"}
+          </button>
         </div>
       </div>
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="cf-mobile-menu">
+          <button onClick={() => { startTour(); setMenuOpen(false); }} style={{ background: "none", border: "none", fontSize: 13, color: "var(--text)", cursor: "pointer", fontFamily: "inherit", padding: "10px 0" }}>
+            ? Take the Tour
+          </button>
+          <div style={{ fontSize: 12, color: pulled ? "var(--green-d)" : "var(--muted)", padding: "10px 0", display: "flex", alignItems: "center", gap: 8 }}>
+            <div className="pulse-dot" style={{ width: 6, height: 6, borderRadius: "50%", background: pulled ? "var(--green)" : "var(--muted)" }} />
+            {pulled ? "Trackops Connected" : "Awaiting Data Pull"}
+          </div>
+        </div>
+      )}
 
       {/* Case Header Banner */}
       <div id="case-header" style={{ padding: "16px 24px", borderBottom: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -296,15 +316,15 @@ export default function DemoPage() {
             <div className="card">
               {MOCK_EVIDENCE.map((ev) => (
                 <div key={ev.id} className="ev-row" style={{ padding: "18px 22px" }}>
-                  <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 12 }}>
+                  <div className="cf-ev-header">
                     <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                       <div style={{ fontSize: 11, color: "#B8860B", fontWeight: 600 }}>{ev.id}</div>
                       <VerifiedBadge verified={ev.verified} />
                     </div>
-                    <div style={{ fontSize: 11, color: "var(--muted)", fontFamily: "var(--mono)" }}>{ev.clipName}</div>
+                    <div style={{ fontSize: 11, color: "var(--muted)", fontFamily: "var(--mono)", wordBreak: "break-all" }}>{ev.clipName}</div>
                   </div>
 
-                  <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "6px 16px", marginBottom: 14 }}>
+                  <div className="cf-ev-grid">
                     {[
                       ["Date", formatDate(ev.date)],
                       ["Time", ev.time],
@@ -323,11 +343,11 @@ export default function DemoPage() {
                       INVESTIGATOR OBSERVATIONS <span style={{ color: "var(--green)" }}>*</span>
                     </div>
                     <textarea
-                      rows={2}
+                      rows={4}
                       placeholder="Describe what was observed in this clip (written by investigator)…"
                       value={narratives[ev.id] || ""}
                       onChange={(e) => setNarratives((p) => ({ ...p, [ev.id]: e.target.value }))}
-                      style={{ width: "100%", fontSize: 13, lineHeight: 1.7 }}
+                      style={{ width: "100%", fontSize: 13, lineHeight: 1.7, minHeight: 80 }}
                     />
                   </div>
                 </div>
