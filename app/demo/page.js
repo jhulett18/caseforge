@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Link from "next/link";
 import { MOCK_CASE, MOCK_EVIDENCE, formatDate } from "@/lib/mock-data";
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
@@ -159,10 +160,13 @@ export default function DemoPage() {
       {/* Top Bar */}
       <div style={{ borderBottom: "1px solid var(--border)", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 56 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <Link href="/" style={{ textDecoration: "none", color: "var(--muted)", fontSize: 12, display: "flex", alignItems: "center", gap: 4 }}>
+            ← Back
+          </Link>
+          <span style={{ color: "var(--border)", fontSize: 18 }}>|</span>
           <div style={{ fontSize: 17, fontWeight: 700, letterSpacing: "-0.4px" }}>
             Case<span style={{ color: "var(--green)" }}>Forge</span>
           </div>
-          <span style={{ color: "var(--border)", fontSize: 18 }}>|</span>
           <span style={{ fontSize: 11, color: "var(--muted)" }}>PI Report Automation</span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>

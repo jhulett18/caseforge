@@ -7,12 +7,13 @@ export async function POST(request) {
 
     const pdfBytes = await generateReport(MOCK_CASE, MOCK_EVIDENCE, narratives || {});
 
-    return new Response(pdfBytes, {
+    const buffer = Buffer.from(pdfBytes);
+    return new Response(buffer, {
       status: 200,
       headers: {
         "Content-Type": "application/pdf",
         "Content-Disposition": `attachment; filename="CaseForge_${MOCK_CASE.id}_Report.pdf"`,
-        "Content-Length": pdfBytes.length.toString(),
+        "Content-Length": buffer.length.toString(),
       },
     });
   } catch (error) {
