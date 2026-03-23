@@ -22,7 +22,8 @@ export default function WelcomePage() {
           </ul>
         </div>
 
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center", marginBottom: 40 }}>
+        <div style={{ fontSize: 12, fontWeight: 600, color: "var(--muted)", letterSpacing: "1px", marginBottom: 14 }}>WHY THIS MATTERS NOW</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 8, alignItems: "center", marginBottom: 40 }}>
           {[
             { label: "518 AI evidence cases", sub: "in US courts since Jan 2025", color: "var(--red)", bg: "var(--red-bg)", border: "var(--red-border)" },
             { label: "Federal Rule 707", sub: "courts now regulate AI evidence", color: "var(--red)", bg: "var(--red-bg)", border: "var(--red-border)" },
