@@ -22,6 +22,23 @@ export default function WelcomePage() {
           </ul>
         </div>
 
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center", marginBottom: 40 }}>
+          {[
+            { label: "518 AI evidence cases", sub: "in US courts since Jan 2025", color: "var(--red)", bg: "var(--red-bg)", border: "var(--red-border)" },
+            { label: "Federal Rule 707", sub: "courts now regulate AI evidence", color: "var(--red)", bg: "var(--red-bg)", border: "var(--red-border)" },
+            { label: "Louisiana SB 231", sub: "investigators must prove provenance", color: "#8A6000", bg: "#FFF8E0", border: "#F0E0A0" },
+            { label: "0 AI-generated words", sub: "in any CaseForge report", color: "var(--green-d)", bg: "var(--green-bg)", border: "var(--green-border)" },
+          ].map((b) => (
+            <div key={b.label} style={{
+              background: b.bg, border: `1px solid ${b.border}`, borderRadius: 100,
+              padding: "8px 16px", display: "inline-flex", flexDirection: "column", alignItems: "center",
+            }}>
+              <span style={{ fontSize: 12, fontWeight: 700, color: b.color }}>{b.label}</span>
+              <span style={{ fontSize: 10, color: b.color, opacity: 0.7 }}>{b.sub}</span>
+            </div>
+          ))}
+        </div>
+
         <Link
           href="/demo"
           style={{
