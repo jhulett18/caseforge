@@ -165,7 +165,7 @@ export default function DemoPage() {
       {/* Top Bar */}
       <div style={{ borderBottom: "1px solid var(--border)", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 56 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <Link href="/" style={{ textDecoration: "none", color: "var(--muted)", fontSize: 12, display: "flex", alignItems: "center", gap: 4 }}>
+          <Link href="/welcome" style={{ textDecoration: "none", color: "var(--muted)", fontSize: 12, display: "flex", alignItems: "center", gap: 4 }}>
             ← Back
           </Link>
           <span style={{ color: "var(--border)", fontSize: 18 }}>|</span>
