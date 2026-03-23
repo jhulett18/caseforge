@@ -35,7 +35,12 @@ function VerifiedBadge({ verified }) {
 
 export default function DemoPage() {
   const [activeTab, setActiveTab] = useState("case");
-  const [narratives, setNarratives] = useState({});
+  const [narratives, setNarratives] = useState({
+    "EV-001": "Subject exited residence at 0714. Walked to vehicle unassisted, loaded 4 lumber boards (approx. 8ft) into truck bed without visible difficulty. Drove north on Oleander Ave.",
+    "EV-002": "Subject arrived at Home Depot at 0941. Entered store unassisted, no visible limp or mobility aid. Purchased additional building materials. Carried two bags to vehicle.",
+    "EV-003": "Subject observed in Home Depot parking lot loading materials into truck bed. Lifted bags weighing approx. 40-50 lbs each overhead into truck bed. No signs of pain or restricted movement.",
+    "EV-004": "Subject exited residence at 0805. Appeared to stretch lower back briefly before entering vehicle. Drove south on Oleander Ave. Clip metadata incomplete — device timestamp not synced.",
+  });
   const [generating, setGenerating] = useState(false);
   const [generated, setGenerated] = useState(false);
   const [pulling, setPulling] = useState(false);
